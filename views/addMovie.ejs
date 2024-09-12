@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Movie</title>
+    
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Custom Netflix-like theme */
+        body {
+            background-color: #141414;
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .form-container {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 40px auto;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        label {
+            color: #b3b3b3;
+        }
+
+        .btn-netflix {
+            background-color: red;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn-netflix:hover {
+            background-color: darkred;
+        }
+        
+.navbar {
+    background-color: #141414;
+    padding: 1rem;
+}
+
+.netflix-logo {
+    width: 120px;
+    height: auto;
+}
+
+        /* Responsive layout for mobile */
+        @media (max-width: 768px) {
+            .form-container {
+                width: 95%;
+            }
+
+            .btn-netflix {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <%- include('header'); -%>
+
+    <!-- Add Movie Form -->
+    <div class="form-container">
+        <h2 class="text-center">Add New Movie</h2>
+
+        <form action="/addMovies" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="title" class="form-label">Movie Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter movie title" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter movie description" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="year" class="form-label">Year</label>
+                <input type="number" class="form-control" id="year" name="year" placeholder="Enter release year" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="poster" class="form-label">Movie Poster</label>
+                <input type="file" class="form-control" id="poster" name="poster" required>
+            </div>
+
+            <button type="submit" class="btn-netflix">Add Movie</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS for functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

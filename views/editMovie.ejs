@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Movie</title>
+
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #141414;
+            /* Netflix dark background */
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Form container */
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #222;
+            /* Netflix dark card background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            text-align: center;
+            color: #e50914;
+            /* Netflix red */
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: #b3b3b3;
+            /* Light gray text */
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="file"],
+        textarea,
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #555;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="text"]::placeholder,
+        textarea::placeholder {
+            color: #777;
+            /* Placeholder text color */
+        }
+
+        /* Image preview styling */
+        .img-preview {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .img-preview img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid #e50914;
+            /* Netflix red border */
+        }
+
+        /* Button styling */
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e50914;
+            /* Netflix red */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #f6121d;
+            /* Slightly brighter red on hover */
+        }
+
+        .navbar {
+            background-color: #141414;
+            padding: 1rem;
+        }
+
+        .netflix-logo {
+            width: 120px;
+            height: auto;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+      <%- include('header'); -%>
+   
+
+        <div class="form-container">
+            <h2>Edit Movie</h2>
+            <form action="/updateMovies/<%= data._id %>" method="post" enctype="multipart/form-data">
+
+                <!-- Title input -->
+                <label for="title">Movie Title</label>
+                <input name="title" type="text" id="title" value="<%= data.title %>" placeholder="Enter movie title" />
+
+                <!-- Description input -->
+                <label for="description">Description</label>
+                <textarea name="description" id="description" rows="3"
+                    placeholder="Enter movie description"><%= data.description %></textarea>
+
+                <!-- Year input -->
+                <label for="year">Year</label>
+                <input name="year" type="number" id="year" value="<%= data.year %>" placeholder="Enter release year" />
+
+                <!-- Image preview and file input -->
+                <div class="img-preview">
+                    <img src="../<%= data.path %>" alt="<%= data.title %>" class="img" />
+                    <label for="poster">Change Image</label>
+                </div>
+                <input type="file" name="poster" id="poster" />
+
+                <!-- Submit button -->
+                <button type="submit">Update Movie</button>
+            </form>
+        </div>
+
+</body>
+
+</html>

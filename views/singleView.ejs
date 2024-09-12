@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= data.title %> - Movie Details
+    </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #141414;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .navbar {
+            background-color: #141414;
+            padding: 1rem;
+        }
+
+        .netflix-logo {
+            width: 120px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="/">
+            <img src="../views/img/logo.png" alt="Netflix" class="netflix-logo">
+        </a>
+    </nav> -->
+    <%- include('header') %>
+    <div class="container">
+        <img src="../<%= data.path %>" alt="<%= data.title %>" class="img" />
+        <h1>
+            <%= data.title %>
+        </h1>
+        <p><strong>Description:</strong>
+            <%= data.description %>
+        </p>
+        <p><strong>Year:</strong>
+            <%= data.year %>
+        </p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+/* Netflix-like Styling */
+body {
+    background-color: #141414;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #141414;
+    padding: 1rem;
+}
+
+.netflix-logo {
+    width: 120px;
+    height: auto;
+}
+
+.btn-netflix {
+    background-color: #e50914;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.btn-netflix:hover {
+    background-color: #b20710;
+}
+
+/* Movie Cards */
+.movie-card {
+    background-color: #222;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 320px; /* Adjust width as needed */
+    margin: 0 auto;
+    aspect-ratio: 16 / 9; /* 16:9 aspect ratio */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.img-container {
+    width: 100%;
+    height: 100%; /* Adjust for aspect ratio */
+    position: relative;
+}
+
+.movie-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.movie-card:hover .movie-poster {
+    opacity: 0.3; /* Reduced opacity for better contrast */
+}
+
+.card-hover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly lighter background */
+    color: rgba(210, 204, 204, 0.744);
+    padding: 15px;
+    border-radius: 10px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.movie-card:hover .card-hover {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.card-title {
+    font-size: 1.1rem; /* Increased font size for better readability */
+    margin-bottom: 5px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.card-description {
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px; /* Increased gap for better spacing */
+    justify-content: center;
+    margin-top: 6px;
+}
+
+.btn-group .btn {
+    padding: 7px;
+    font-size: 18px; /* Slightly larger icon size */
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    color: white;
+    text-decoration: none;
+}
+
+/* Button Colors */
+.btn-edit {
+    background-color: #1e90ff;
+    border: none;
+}
+
+.btn-edit:hover {
+    background-color: #1c86ee;
+}
+
+.btn-delete {
+    background-color: #e50914;
+    border: none;
+}
+
+.btn-delete:hover {
+    background-color: #b20710;
+}
+
+.btn-view {
+    background-color: #ffa500;
+    border: none;
+}
+
+.btn-view:hover {
+    background-color: #e59400;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .movie-card {
+        max-width: 100%; /* Ensure cards are responsive */
+    }
+
+    .img-container {
+        height: 50%; /* Adjust height for mobile screens */
+    }
+
+    .movie-poster {
+        height: auto; /* Adjust height for mobile screens */
+    }
+}
