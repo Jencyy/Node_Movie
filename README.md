@@ -46,12 +46,22 @@ The app should now be running on http://localhost:9999.
 Folder Structure
 
 movie-management-system/
+
 ├── models/
+
 │   └── movie.js      # Mongoose schema for movies
+
+
 ├── routes/
+
 │   └── movies.js     # All routes related to movies
+
+
 ├── public/
+
 │   └── uploads/      # Folder for uploaded poster images
+
+
 ├── views/
 │   ├── movies/       # EJS templates for adding, viewing, editing, and deleting movies
 │   └── partials/     # Reusable EJS components like header, footer, etc.
